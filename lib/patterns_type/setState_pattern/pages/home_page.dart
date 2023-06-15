@@ -71,11 +71,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  // void _showResponse(String response) {
-  //   setState(() {
-  //     data = response;
-  //   });
-  // }
+  void _showResponse(String response) {
+    setState(() {
+      //data = response;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
