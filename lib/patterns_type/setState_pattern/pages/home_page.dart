@@ -1,3 +1,4 @@
+import 'package:architecture_patterns/patterns_type/setState_pattern/pages/create.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -20,9 +21,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    var post = Post(id: 1, title: "PDP", body: "Online", userId: 1);
-    _apiPostDelete(post);
     _apiPostList();
+
   }
 
   void _apiPostList()async {
@@ -41,20 +41,31 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _apiPostCreate(Post post) {
-    Network.POST(Network.API_CREATE, Network.paramsCreate(post))
-        .then((response) => {
-              print(response),
+    setState(() {
+      isLoading = true;
+    });
+    var response = Network.POST(Network.API_CREATE, Network.paramsCreate(post));
+    setState(() {
+    isLoading = false;
+      if(response != null){
 
-            });
+      }else{
+      }
+    });
   }
 
   void _apiPostUpdate(Post post) {
-    Network.PUT(
-            Network.API_UPDATE + post.id.toString(), Network.paramsUpdate(post))
-        .then((response) => {
-              print(response),
+    setState(() {
+      isLoading = true;
+    });
+    var response = Network.PUT(Network.API_CREATE+post.id.toString(), Network.paramsUpdate(post));
+    setState(() {
+      isLoading = false;
+      if(response != null){
 
-            });
+      }else{
+      }
+    });
   }
 
   void _apiPostDelete(Post post)async {
@@ -63,17 +74,11 @@ class _HomePageState extends State<HomePage> {
     });
     var response = await Network.DEL(Network.API_DELETE + post.id.toString(), Network.paramsEmpty());
     setState(() {
-      isLoading = false;
       if(response != null){
         _apiPostList();
       }else{
       }
-    });
-  }
-
-  void _showResponse(String response) {
-    setState(() {
-      //data = response;
+      isLoading = false;
     });
   }
 
@@ -96,7 +101,9 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.cyanAccent,
         foregroundColor:Colors.white,
-        onPressed: (){},
+        onPressed: (){
+          Navigator.pushNamed(context, Creates.id);
+        },
         child: const Icon(Icons.add),
       ),
     );
@@ -105,12 +112,15 @@ class _HomePageState extends State<HomePage> {
     return Slidable(
       startActionPane: ActionPane(
         motion: const ScrollMotion(),
-        dismissible: DismissiblePane(
-          onDismissed: (){},
-        ),
+        // dismissible: DismissiblePane(
+        //   onDismissed: (){},
+        // ),
         children: [
           SlidableAction(
-            onPressed: (context){},
+            onPressed: (context){
+              var post1 = Post(id: 1, title: "PDP", body: "Online", userId: 1);
+              _apiPostUpdate(post1);
+            },
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
             icon: Icons.edit,
@@ -120,9 +130,9 @@ class _HomePageState extends State<HomePage> {
       ),
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
-        dismissible: DismissiblePane(
-          onDismissed: (){},
-        ),
+        // dismissible: DismissiblePane(
+        //   onDismissed: (){},
+        // ),
         children: [
           SlidableAction(
             onPressed: (context){
