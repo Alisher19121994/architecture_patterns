@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../model/post.dart';
 import '../services/Network.dart';
 
-class Creates extends StatefulWidget {
-  const Creates({super.key});
+class SetStateCreatePage extends StatefulWidget {
+  const SetStateCreatePage({super.key});
 static const String id = 'getID';
   @override
-  State<Creates> createState() => _CreatesState();
+  State<SetStateCreatePage> createState() => _SetStateCreatePageState();
 }
 
-class _CreatesState extends State<Creates> {
+class _SetStateCreatePageState extends State<SetStateCreatePage> {
 
  // late String id;
   late String title;

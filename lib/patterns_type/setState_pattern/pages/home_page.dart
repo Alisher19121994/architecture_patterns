@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.cyanAccent,
         foregroundColor:Colors.white,
         onPressed: (){
-          Navigator.pushNamed(context, Creates.id);
+          Navigator.pushNamed(context, SetStateCreatePage.id);
         },
         child: const Icon(Icons.add),
       ),
