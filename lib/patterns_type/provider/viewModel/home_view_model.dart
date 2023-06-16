@@ -5,6 +5,8 @@ import '../services/services.dart';
 
 class HomeViewModel extends ChangeNotifier{
   var isLoading = false;
+  late String title;
+  late String body;
   List<Posts> items = [];
 
   Future apiPostList()async {
