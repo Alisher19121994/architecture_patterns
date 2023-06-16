@@ -1,4 +1,6 @@
 import 'package:architecture_patterns/patterns_type/introduction/home_page.dart';
+import 'package:architecture_patterns/patterns_type/provider/pages/Create_page.dart';
+import 'package:architecture_patterns/patterns_type/provider/pages/pro_home.dart';
 import 'package:architecture_patterns/patterns_type/setState_pattern/pages/create.dart';
 import 'package:architecture_patterns/patterns_type/setState_pattern/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
      // home:  Homes(),
-      home:  HomePage(),
+      home:  PROHOME(),
+      //home:  HomePage(),
       routes: {
+        CreatePage.id:(context)=> CreatePage(),
         Creates.id:(context)=> Creates(),
       },
     );

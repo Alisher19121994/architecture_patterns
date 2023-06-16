@@ -1,9 +1,9 @@
-import 'package:architecture_patterns/patterns_type/setState_pattern/pages/create.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../model/post.dart';
 import '../services/Network.dart';
+import 'create.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
