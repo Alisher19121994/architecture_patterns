@@ -6,6 +6,8 @@ import '../services/services.dart';
 class MainController extends GetxController{
 
   var isLoading = false.obs;
+  late String title;
+  late String body;
   var items = [].obs;
 
   void apiPostList()async {
