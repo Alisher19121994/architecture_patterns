@@ -52,6 +52,7 @@ class _MainXState extends State<MainX> {
         foregroundColor:Colors.white,
         onPressed: (){
           Navigator.pushNamed(context, GetXPage.id);
+         // Get.to(GetXPage);
         },
         child: const Icon(Icons.add),
       ),
