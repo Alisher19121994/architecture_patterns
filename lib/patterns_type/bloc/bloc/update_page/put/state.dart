@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 abstract class UpdatePostState extends Equatable {
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props =>[];
 }
 
 class UpdatePostInit extends UpdatePostState {}

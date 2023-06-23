@@ -47,9 +47,7 @@ class _UpdateBlocPageState extends State<UpdateBlocPage> {
               if (state is UpdatePostLoading) {
                 String title = titleController.text.toString();
                 String body = bodyController.text.toString();
-                PostBloc postBloc = PostBloc(
-                    id:widget.post!.id, title: title,
-                    body: body, userId: widget.post!.userId);
+                PostBloc postBloc = PostBloc(id:widget.post!.id, title: title, body: body, userId: widget.post!.userId);
                 return viewOfUpdate(true, context, postBloc, titleController, bodyController);
               }
               if(state is UpdatePostLoaded){

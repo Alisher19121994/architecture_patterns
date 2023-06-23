@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
 
       home: MultiBlocProvider(providers: [
         BlocProvider(create: (context) => ListPostCubit()),
-        BlocProvider(create: (context) => ListPostCubit()),
+      //  BlocProvider(create: (context) => ListPostCubit()),
       ], child: HomeBloc()),
     );
       ///////////////////////////////////////////

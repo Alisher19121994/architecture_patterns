@@ -2,7 +2,6 @@ import 'package:architecture_patterns/patterns_type/bloc/model/posts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../bloc/home_page/list/cubit.dart';
 
 
@@ -14,7 +13,7 @@ Widget itemOfPost(BuildContext context, PostBloc post) {
       children: [
         SlidableAction(
           onPressed: (BuildContext context) {
-            //BlocProvider.of<ListPostCubit>(context).callUpdatePage(context, post);
+            BlocProvider.of<ListPostCubit>(context).callUpdatePage(context, post);
           },
           backgroundColor: Color(0xFF21B7CA),
           foregroundColor: Colors.white,
@@ -30,11 +29,9 @@ Widget itemOfPost(BuildContext context, PostBloc post) {
       children: [
         SlidableAction(
           onPressed: (BuildContext context) {
-            //////////////////////////////
             BlocProvider.of<ListPostCubit>(context).apiPostDelete(post);
-         /////////////////////////////////
           },
-          backgroundColor: Color(0xFFFE4A49),
+          backgroundColor: const Color(0xFFFE4A49),
           foregroundColor: Colors.white,
           icon: Icons.delete,
           label: 'Delete',

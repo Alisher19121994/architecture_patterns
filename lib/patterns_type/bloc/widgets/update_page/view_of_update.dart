@@ -37,7 +37,7 @@ Widget viewOfUpdate(bool isLoading, BuildContext context, PostBloc post, TextEdi
         ),
         isLoading
             ? Center(
-          child: CircularProgressIndicator(),
+               child: CircularProgressIndicator(),
         )
             : SizedBox.shrink(),
       ],

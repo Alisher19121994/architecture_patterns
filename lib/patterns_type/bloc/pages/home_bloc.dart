@@ -42,7 +42,7 @@ class _HomeBlocState extends State<HomeBloc> {
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
           onPressed: () {
-           // BlocProvider.of<ListPostCubit>(context).callCreatePage(context);
+            BlocProvider.of<ListPostCubit>(context).callCreatePage(context);
           },
           child: Icon(Icons.add),
         )

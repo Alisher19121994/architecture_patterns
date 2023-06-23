@@ -4,7 +4,7 @@ import '../../../model/posts.dart';
 
 abstract class ListPostState extends Equatable{
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
 }
 
 class ListPostInit extends ListPostState{}
