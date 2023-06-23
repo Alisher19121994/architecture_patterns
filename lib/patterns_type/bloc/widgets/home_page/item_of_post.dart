@@ -15,7 +15,7 @@ Widget itemOfPost(BuildContext context, PostBloc post) {
           onPressed: (BuildContext context) {
             BlocProvider.of<ListPostCubit>(context).callUpdatePage(context, post);
           },
-          backgroundColor: Color(0xFF21B7CA),
+          backgroundColor: const Color(0xFF21B7CA),
           foregroundColor: Colors.white,
           icon: Icons.update,
           label: 'Update',
@@ -39,18 +39,18 @@ Widget itemOfPost(BuildContext context, PostBloc post) {
       ],
     ),
     child: Container(
-      padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            post.title!.toUpperCase(),
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            post.title.toUpperCase(),
+            style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 5,
           ),
-          Text(post.body!),
+          Text(post.body),
         ],
       ),
     ),

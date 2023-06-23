@@ -35,17 +35,16 @@ class ListPostCubit extends Cubit<ListPostState> {
       emit(ListPostError(error: 'Could not deleted!'));
     }
   }
-  //
 
-  void callCreatePage(BuildContext context) async {
+  void callCreatePage(context) async {
     var results = await Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => PostBlocPage()));
+        .push(MaterialPageRoute(builder: (context) => const PostBlocPage()));
     if (results != null) {
       BlocProvider.of<ListPostCubit>(context).apiPostList();
     }
   }
 
-  void callUpdatePage(BuildContext context, PostBloc post) async {
+  void callUpdatePage(context, PostBloc post) async {
     print(post.toJson());
     var results = await Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => UpdateBlocPage(post: post)));

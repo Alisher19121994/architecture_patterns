@@ -44,7 +44,7 @@ class _HomeBlocState extends State<HomeBloc> {
           onPressed: () {
             BlocProvider.of<ListPostCubit>(context).callCreatePage(context);
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         )
     );
   }
