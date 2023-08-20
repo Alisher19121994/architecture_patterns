@@ -28,6 +28,7 @@ class _HomeBlocState extends State<HomeBloc> {
     return Scaffold(
       body: BlocBuilder<ListPostCubit, ListPostState>(
         builder: (BuildContext context, ListPostState state){
+
           if(state is ListPostError){
             return viewOfHome(items, true);
           }

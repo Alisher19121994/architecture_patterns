@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:http/http.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../model/post_data.dart';
 
@@ -11,9 +13,19 @@ class ServiceX{
   /* Http Apis */
 
   static String API_LIST = "/posts";
-  static String API_CREATE = "/posts";
+  static String API_CREATE = "posts";
   static String API_UPDATE = "/posts/"; //{id}
   static String API_DELETE = "/posts/"; //{id}
+
+ static  Dio dio = Dio()
+
+  ..interceptors.add(PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: false,
+      compact: false,
+    ));
 
   /* Http Requests */
 
@@ -32,6 +44,23 @@ class ServiceX{
     var response = await post(uri, headers: headers,body: jsonEncode(params));
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
+    }
+    return null;
+  }
+
+  static Future<String?> POSTs(String api, Map<String, String> params) async {
+    dio.interceptors.add(LogInterceptor(
+      request: true,
+      requestHeader: true,
+      requestBody: true,
+      responseHeader: true,
+      responseBody: true,
+        error: true,
+    ));
+    dio = Dio(BaseOptions(headers: {'Content-Type': 'application/json; charset=UTF-8',}));
+    var response = await dio.post('$BASE/$api',data: jsonEncode(params));
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.data;
     }
     return null;
   }

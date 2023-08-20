@@ -56,7 +56,8 @@ class _GetXPageState extends State<GetXPage> {
             width: 150,
             child: ElevatedButton(
               onPressed: (){
-                var post = PostX(id:0,title: Get.find<MainController>().title,body: Get.find<MainController>().body,userId: 1);
+                var post = PostX(id:0,title: Get.find<MainController>().title,
+                    body: Get.find<MainController>().body,userId: 1);
                 Get.find<MainController>().apiPostCreate(post);
               },
               child: Text('Save'),

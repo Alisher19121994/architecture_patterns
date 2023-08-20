@@ -25,7 +25,7 @@ class PaymentController extends GetxController{
 
   void apiPostCreate(PostX post) {
     isLoading = true;
-    var response = ServiceX.POST(ServiceX.API_CREATE, ServiceX.paramsCreate(post));
+    var response = ServiceX.POSTs(ServiceX.API_CREATE, ServiceX.paramsCreate(post));
     if(response != null){
 
     }else{
