@@ -13,5 +13,6 @@ class DIService {
     Get.lazyPut<MainController>(() => MainController(), fenix: true);
     Get.lazyPut<PaymentController>(() => PaymentController(), fenix: true);
     Get.lazyPut<SettingsController>(() => SettingsController(), fenix: true);
+    Get.put<PaymentController>(PaymentController(),permanent: true);
   }
 }

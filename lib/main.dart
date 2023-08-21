@@ -2,6 +2,7 @@ import 'package:architecture_patterns/patterns_type/bloc/bloc/home_page/list/cub
 import 'package:architecture_patterns/patterns_type/bloc/pages/home_bloc.dart';
 import 'package:architecture_patterns/patterns_type/getx/pages/mainx.dart';
 import 'package:architecture_patterns/patterns_type/getx/pages/next.dart';
+import 'package:architecture_patterns/patterns_type/getx/pages/payment.dart';
 import 'package:architecture_patterns/patterns_type/getx/services/dependancy_injection.dart';
 import 'package:architecture_patterns/patterns_type/introduction/home_page.dart';
 import 'package:architecture_patterns/patterns_type/provider/pages/Create_page.dart';
@@ -26,7 +27,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //return MaterialApp(
     return GetMaterialApp(
-     // home:  Homes(),
+      debugShowCheckedModeBanner: false,
+      home:  Payments(),
+    routes: {
+      GetXPage.id: (context) => GetXPage(),
+    },
+    );
       //home:  HomeBloc(),
       //home:  MainX(),
       //home:  HomeX(),
@@ -41,11 +47,11 @@ class MyApp extends StatelessWidget {
       //   child: HomePage(),
       // ),
 
-      home: MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => ListPostCubit()),
-      //  BlocProvider(create: (context) => ListPostCubit()),
-      ], child: HomeBloc()),
-    );
+    //   home: MultiBlocProvider(providers: [
+    //     BlocProvider(create: (context) => ListPostCubit()),
+    //   //  BlocProvider(create: (context) => ListPostCubit()),
+    //   ], child: HomeBloc()),
+    // );
       ///////////////////////////////////////////
       //GETX
       //initialBinding: ControllersBinding(),

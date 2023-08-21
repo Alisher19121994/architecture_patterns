@@ -8,6 +8,7 @@ import '../model/post_data.dart';
 
 class ServiceX{
   static String BASE = "jsonplaceholder.typicode.com";
+  static String foto = "https://thumbs.dreamstime.com/b/big-ben-london-autumn-leaves-32915756.jpg";
   static Map<String,String> headers = {'Content-Type':'application/json; charset=UTF-8'};
 
   /* Http Apis */
@@ -29,6 +30,15 @@ class ServiceX{
 
   /* Http Requests */
 
+  static Future<String?> GETs() async {
+    //var uri = Uri.https('https://thumbs.dreamstime.com/b/big-ben-london-autumn-leaves-32915756.jpg'); // http or https
+    var uri = Uri.https('thumbs.dreamstime.com/b/big-ben-london-autumn-leaves-32915756.jpg'); // http or https
+    var response = await get(uri, headers: headers);
+    if (response.statusCode == 200) {
+      return response.body;
+    }
+    return null;
+  }
   static Future<String?> GET(String api, Map<String, String> params) async {
     var uri = Uri.https(BASE, api, params); // http or https
     var response = await get(uri, headers: headers);
